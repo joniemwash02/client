@@ -20,7 +20,7 @@ const UpdateUser = () => {
   };
   useEffect(()=>{
    try {
-     const response= axios.get(`http://localhost:5000/api/update/user/${id}`)
+     const response= axios.get(`http://localhost:5000/api/user/${id}`)
     .then((response)=>{
         setUser(response.data)
     })
@@ -34,7 +34,7 @@ const UpdateUser = () => {
     e.preventDefault();
 
     try {
-      const response = await axios.post("http://localhost:5000/api/user", user);
+      const response = await axios.put(`http://localhost:5000/api/update/user/${id}`, user);
       toast.success(response.data.message, { position: "top-right" });
       navigate("/");
     } catch (error) {
